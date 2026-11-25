@@ -1,0 +1,1444 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>朵蜜mv_朵蜜mv官方网站_朵蜜音乐影像平台</title>
+<meta name="description" content="朵蜜MV官方网站，专注原创音乐影像与视觉作品的高品质视频品牌，为创作者与乐迷搭建专业内容生态。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23ff5c8a'/%3E%3Cpath d='M26 20 L48 32 L26 44 Z' fill='%23fff6f0'/%3E%3C/svg%3E">
+<style>
+:root{
+  --dm-bg:#0f1118;
+  --dm-bg-soft:#171a24;
+  --dm-panel:#1d2130;
+  --dm-line:#2a2f40;
+  --dm-ink:#eef1f8;
+  --dm-ink-soft:#a7b0c6;
+  --dm-ink-dim:#7b849b;
+  --dm-neon:#8b7bff;
+  --dm-neon-2:#39e6c3;
+  --dm-pink:#ff5c8a;
+  --dm-amber:#ffc861;
+  --dm-radius:14px;
+  --dm-shadow:0 18px 40px rgba(0,0,0,.45);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--dm-bg);
+  color:var(--dm-ink);
+  font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+ul{list-style:none;}
+.dm-container{width:min(1180px,92%);margin:0 auto;}
+.dm-sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);}
+.dm-anchor{scroll-margin-top:132px;}
+.dm-h2{font-size:clamp(22px,3vw,32px);line-height:1.3;letter-spacing:.5px;font-weight:800;}
+.dm-h2 .dm-h2-mark{color:var(--dm-neon-2);}
+.dm-h3{font-size:17px;font-weight:700;line-height:1.45;}
+.dm-section{padding:72px 0;position:relative;}
+.dm-section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:34px;flex-wrap:wrap;}
+.dm-section-sub{color:var(--dm-ink-soft);font-size:14px;max-width:560px;margin-top:8px;}
+.dm-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;letter-spacing:2px;color:var(--dm-neon-2);
+  text-transform:uppercase;margin-bottom:12px;font-weight:700;
+}
+.dm-eyebrow::before{content:"";width:22px;height:2px;background:var(--dm-neon-2);border-radius:2px;}
+.dm-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px 24px;border-radius:999px;font-size:14px;font-weight:700;
+  transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
+  border:1px solid transparent;white-space:nowrap;
+}
+.dm-btn-primary{background:linear-gradient(120deg,var(--dm-neon),var(--dm-pink));color:#fff;box-shadow:0 10px 26px rgba(139,123,255,.35);}
+.dm-btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(255,92,138,.42);}
+.dm-btn-ghost{border-color:var(--dm-line);color:var(--dm-ink);background:rgba(255,255,255,.03);}
+.dm-btn-ghost:hover{border-color:var(--dm-neon);color:var(--dm-neon-2);transform:translateY(-2px);}
+.dm-tag{
+  display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;
+  background:rgba(139,123,255,.14);color:#b9b0ff;border:1px solid rgba(139,123,255,.28);
+  white-space:nowrap;
+}
+.dm-tag--mint{background:rgba(57,230,195,.12);color:#7bf0d8;border-color:rgba(57,230,195,.3);}
+.dm-tag--pink{background:rgba(255,92,138,.12);color:#ff9bb6;border-color:rgba(255,92,138,.3);}
+.dm-tag--amber{background:rgba(255,200,97,.12);color:#ffd98f;border-color:rgba(255,200,97,.3);}
+
+/* ============ 吸顶公告 + 页头 ============ */
+.dm-topstack{position:sticky;top:0;z-index:80;}
+.dm-notice{
+  background:linear-gradient(90deg,var(--dm-neon),var(--dm-pink) 60%,var(--dm-amber));
+  color:#101018;font-size:13px;font-weight:700;
+  display:flex;align-items:center;gap:14px;overflow:hidden;
+}
+.dm-notice-inner{
+  display:flex;align-items:center;gap:10px;
+  padding:9px 0;white-space:nowrap;overflow:hidden;
+}
+.dm-notice-label{
+  background:#101018;color:#ffd98f;font-size:11px;letter-spacing:1px;
+  padding:2px 9px;border-radius:999px;flex:none;font-weight:800;
+}
+.dm-notice-marquee{
+  overflow:hidden;position:relative;flex:1;min-width:0;
+}
+.dm-notice-track{
+  display:inline-flex;gap:44px;animation:dm-marquee 32s linear infinite;
+}
+.dm-notice-track span{display:inline-flex;align-items:center;gap:8px;}
+.dm-notice-track span::after{content:"◆";font-size:9px;opacity:.6;}
+@keyframes dm-marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.dm-header{
+  background:rgba(15,17,24,.88);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--dm-line);
+}
+.dm-header-inner{
+  display:flex;align-items:center;gap:26px;height:68px;
+}
+.dm-logo{display:flex;align-items:center;gap:10px;flex:none;}
+.dm-logo-mark{
+  width:38px;height:38px;border-radius:11px;flex:none;
+  background:conic-gradient(from 210deg,var(--dm-neon),var(--dm-pink),var(--dm-amber),var(--dm-neon));
+  display:grid;place-items:center;font-weight:900;color:#0f1118;font-size:17px;
+}
+.dm-logo-text{font-size:19px;font-weight:900;letter-spacing:1px;}
+.dm-logo-text em{font-style:normal;color:var(--dm-neon-2);font-size:11px;letter-spacing:2px;display:block;font-weight:600;line-height:1;}
+.dm-nav{display:flex;gap:4px;margin-left:6px;flex:1;}
+.dm-nav a{
+  font-size:14px;color:var(--dm-ink-soft);padding:8px 12px;border-radius:9px;
+  transition:color .2s,background .2s;
+}
+.dm-nav a:hover{color:#fff;background:rgba(255,255,255,.06);}
+.dm-head-tools{display:flex;align-items:center;gap:12px;flex:none;}
+.dm-search{
+  display:flex;align-items:center;gap:8px;
+  background:var(--dm-bg-soft);border:1px solid var(--dm-line);border-radius:999px;
+  padding:7px 14px;width:220px;transition:border-color .2s,width .25s;
+}
+.dm-search:focus-within{border-color:var(--dm-neon);width:264px;}
+.dm-search input{
+  background:none;border:none;outline:none;color:var(--dm-ink);font-size:13px;width:100%;
+}
+.dm-search input::placeholder{color:var(--dm-ink-dim);}
+.dm-search svg{flex:none;opacity:.7;}
+.dm-burger{
+  display:none;width:42px;height:42px;border-radius:10px;border:1px solid var(--dm-line);
+  place-items:center;background:var(--dm-bg-soft);
+}
+.dm-burger span{display:block;width:18px;height:2px;background:var(--dm-ink);border-radius:2px;position:relative;}
+.dm-burger span::before,.dm-burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--dm-ink);border-radius:2px;}
+.dm-burger span::before{top:-6px;}
+.dm-burger span::after{top:6px;}
+.dm-mobile-nav{display:none;background:var(--dm-bg-soft);border-bottom:1px solid var(--dm-line);}
+.dm-mobile-nav.is-open{display:block;}
+.dm-mobile-nav a{display:block;padding:13px 4%;font-size:15px;color:var(--dm-ink-soft);border-top:1px solid rgba(255,255,255,.04);}
+.dm-mobile-nav a:hover{color:var(--dm-neon-2);}
+
+/* ============ 首屏 5:5 大幅图文 ============ */
+.dm-hero{padding:64px 0 56px;position:relative;overflow:hidden;}
+.dm-hero::before{
+  content:"";position:absolute;inset:-20% -10% auto -10%;height:520px;
+  background:radial-gradient(60% 70% at 30% 20%,rgba(139,123,255,.24),transparent 70%),
+             radial-gradient(50% 60% at 85% 10%,rgba(255,92,138,.18),transparent 70%);
+  pointer-events:none;
+}
+.dm-hero-grid{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:52px;align-items:center;position:relative;
+}
+.dm-hero-title{
+  font-size:clamp(34px,4.6vw,56px);line-height:1.12;font-weight:900;letter-spacing:1px;
+  margin:14px 0 16px;
+}
+.dm-hero-title .dm-grad{
+  background:linear-gradient(100deg,var(--dm-neon-2),var(--dm-neon) 45%,var(--dm-pink) 90%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.dm-hero-lead{color:var(--dm-ink-soft);font-size:16px;max-width:520px;}
+.dm-hero-badges{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 22px;}
+.dm-hero-intro{
+  font-size:14px;color:var(--dm-ink-soft);line-height:1.85;
+  border-left:3px solid var(--dm-pink);padding-left:16px;margin-bottom:24px;
+  background:linear-gradient(90deg,rgba(255,92,138,.07),transparent);
+  border-radius:0 10px 10px 0;padding-top:12px;padding-bottom:12px;
+}
+.dm-hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+.dm-stats{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:30px;
+}
+.dm-stat{
+  background:var(--dm-bg-soft);border:1px solid var(--dm-line);border-radius:var(--dm-radius);
+  padding:14px 14px 12px;
+}
+.dm-stat b{display:block;font-size:clamp(20px,2.4vw,26px);font-weight:900;color:var(--dm-neon-2);line-height:1.2;}
+.dm-stat span{font-size:12px;color:var(--dm-ink-dim);display:block;margin-top:4px;}
+.dm-hero-visual{position:relative;}
+.dm-hero-figure{
+  border-radius:22px;overflow:hidden;border:1px solid var(--dm-line);
+  box-shadow:var(--dm-shadow);position:relative;background:#0b0d14;
+}
+.dm-hero-figure img{width:100%;aspect-ratio:4/3.4;object-fit:cover;}
+.dm-hero-play{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:76px;height:76px;border-radius:50%;display:grid;place-items:center;
+  background:rgba(15,17,24,.62);border:1.5px solid rgba(255,255,255,.5);
+  backdrop-filter:blur(4px);transition:transform .22s ease,background .22s;
+}
+.dm-hero-play:hover{transform:translate(-50%,-50%) scale(1.08);background:rgba(255,92,138,.8);}
+.dm-hero-play svg{width:26px;height:26px;margin-left:4px;}
+.dm-hero-float{
+  position:absolute;right:-14px;bottom:-18px;
+  background:var(--dm-panel);border:1px solid var(--dm-line);border-radius:14px;
+  padding:12px 16px;box-shadow:var(--dm-shadow);font-size:12px;color:var(--dm-ink-soft);
+  min-width:190px;
+}
+.dm-hero-float b{display:block;color:#fff;font-size:14px;margin-bottom:2px;}
+.dm-hero-float .dm-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--dm-neon-2);margin-right:6px;animation:dm-pulse 1.6s infinite;}
+@keyframes dm-pulse{0%,100%{opacity:1;}50%{opacity:.25;}}
+
+/* ============ 视频区：一重点大图 + 文字列表 ============ */
+.dm-video-wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:34px;align-items:start;}
+.dm-feature-card{
+  background:var(--dm-bg-soft);border:1px solid var(--dm-line);border-radius:18px;overflow:hidden;
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.dm-feature-card:hover{transform:translateY(-4px);box-shadow:var(--dm-shadow);}
+.dm-feature-cover{position:relative;overflow:hidden;}
+.dm-feature-cover img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .5s ease;}
+.dm-feature-card:hover .dm-feature-cover img{transform:scale(1.045);}
+.dm-cover-badge{
+  position:absolute;left:12px;top:12px;font-size:11px;font-weight:800;letter-spacing:1px;
+  background:var(--dm-pink);color:#fff;padding:4px 10px;border-radius:999px;
+}
+.dm-cover-duration{
+  position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.72);color:#fff;
+  font-size:11px;padding:2px 8px;border-radius:6px;
+}
+.dm-feature-body{padding:18px 20px 20px;}
+.dm-feature-body .dm-h3{font-size:19px;margin-bottom:8px;}
+.dm-feature-desc{font-size:13px;color:var(--dm-ink-soft);line-height:1.7;margin-bottom:12px;}
+.dm-meta-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px;color:var(--dm-ink-dim);}
+.dm-avatar-xs{
+  width:24px;height:24px;border-radius:50%;display:grid;place-items:center;
+  font-size:11px;font-weight:800;color:#0f1118;flex:none;
+}
+.dm-list-items{display:flex;flex-direction:column;gap:12px;}
+.dm-vrow{
+  display:grid;grid-template-columns:64px minmax(0,1fr);gap:14px;
+  background:var(--dm-bg-soft);border:1px solid var(--dm-line);border-radius:var(--dm-radius);
+  padding:14px;transition:border-color .2s,background .2s,transform .2s;
+}
+.dm-vrow:hover{border-color:rgba(139,123,255,.6);background:var(--dm-panel);transform:translateX(3px);}
+.dm-vrow-index{
+  width:64px;height:64px;border-radius:11px;display:grid;place-items:center;
+  font-weight:900;font-size:20px;color:#0f1118;
+}
+.dm-vrow-body{min-width:0;}
+.dm-vrow-title{font-size:14.5px;font-weight:700;line-height:1.45;margin-bottom:5px;}
+.dm-vrow-title:hover{color:var(--dm-neon-2);}
+.dm-vrow-sum{font-size:12.5px;color:var(--dm-ink-dim);line-height:1.6;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.dm-vrow-foot{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--dm-ink-dim);}
+.dm-act{
+  display:inline-flex;align-items:center;gap:4px;font-size:12px;color:var(--dm-ink-dim);
+  padding:2px 8px;border-radius:999px;border:1px solid transparent;transition:.2s;
+}
+.dm-act:hover{color:var(--dm-neon-2);background:rgba(57,230,195,.1);border-color:rgba(57,230,195,.25);}
+.dm-act.is-liked{color:var(--dm-pink);}
+.dm-act.is-saved{color:var(--dm-amber);}
+.dm-act svg{width:14px;height:14px;}
+
+/* ============ 关键词解析模块 ============ */
+.dm-parse{background:var(--dm-bg-soft);border-top:1px solid var(--dm-line);border-bottom:1px solid var(--dm-line);}
+.dm-parse-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:40px;align-items:start;}
+.dm-parse-block h3{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:9px;}
+.dm-parse-block h3:first-child{margin-top:0;}
+.dm-parse-block h3::before{content:"";width:8px;height:8px;border-radius:50%;background:linear-gradient(120deg,var(--dm-neon),var(--dm-pink));flex:none;}
+.dm-parse-block p{font-size:14px;color:var(--dm-ink-soft);line-height:1.95;margin-bottom:12px;}
+.dm-parse-block p b{color:var(--dm-ink);font-weight:700;}
+.dm-parse-side{
+  background:var(--dm-panel);border:1px solid var(--dm-line);border-radius:16px;padding:20px;
+  position:sticky;top:132px;
+}
+.dm-parse-side .dm-h3{margin-bottom:14px;}
+.dm-kv{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px dashed rgba(255,255,255,.08);font-size:13px;}
+.dm-kv:last-child{border-bottom:none;}
+.dm-kv span{color:var(--dm-ink-dim);}
+.dm-kv b{color:var(--dm-neon-2);font-weight:700;text-align:right;}
+.dm-side-note{margin-top:16px;font-size:12px;color:var(--dm-ink-dim);line-height:1.7;}
+
+/* ============ 专题 3-5 ============ */
+.dm-topic-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;}
+.dm-topic-card{
+  background:var(--dm-bg-soft);border:1px solid var(--dm-line);border-radius:18px;
+  padding:22px 20px;display:flex;flex-direction:column;gap:12px;
+  transition:border-color .2s,transform .2s,box-shadow .2s;
+}
+.dm-topic-card:hover{border-color:rgba(57,230,195,.5);transform:translateY(-3px);box-shadow:var(--dm-shadow);}
+.dm-topic-card.is-feature{grid-column:span 2;}
+.dm-topic-media{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;}
+.dm-topic-media img{border-radius:12px;width:100%;aspect-ratio:16/9;object-fit:cover;}
+.dm-topic-rows{margin-top:2px;}
+.dm-topic-rows li{
+  font-size:13px;color:var(--dm-ink-soft);padding:9px 0 9px 18px;position:relative;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.dm-topic-rows li::before{
+  content:"";position:absolute;left:2px;top:16px;width:7px;height:7px;border-radius:2px;
+  background:var(--dm-neon);transform:rotate(45deg);
+}
+.dm-topic-status{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--dm-ink-dim);}
+.dm-status-dot{width:7px;height:7px;border-radius:50%;background:var(--dm-neon-2);}
+
+/* ============ 创作者矩阵 双列简介 ============ */
+.dm-author-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;}
+.dm-author-card{
+  display:grid;grid-template-columns:72px minmax(0,1fr);gap:16px;
+  background:var(--dm-bg-soft);border:1px solid var(--dm-line);border-radius:18px;padding:20px;
+  transition:border-color .2s,transform .2s;
+}
+.dm-author-card:hover{border-color:rgba(255,92,138,.5);transform:translateY(-3px);}
+.dm-author-avatar{
+  width:72px;height:72px;border-radius:50%;display:grid;place-items:center;
+  font-size:26px;font-weight:900;color:#0f1118;letter-spacing:1px;flex:none;
+}
+.dm-author-name{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:16px;font-weight:800;}
+.dm-author-field{font-size:12px;color:var(--dm-neon-2);margin:3px 0 8px;}
+.dm-author-bio{font-size:13px;color:var(--dm-ink-soft);line-height:1.7;}
+.dm-author-nums{display:flex;gap:16px;margin-top:10px;font-size:12px;color:var(--dm-ink-dim);}
+.dm-author-nums b{color:var(--dm-ink);font-weight:700;}
+.dm-author-more{margin-top:10px;font-size:12px;color:var(--dm-neon);font-weight:700;display:inline-flex;align-items:center;gap:5px;}
+.dm-author-more:hover{color:var(--dm-pink);}
+
+/* ============ 评价 双列短评 ============ */
+.dm-quote-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;}
+.dm-quote{
+  background:var(--dm-bg-soft);border:1px solid var(--dm-line);border-left:3px solid var(--dm-neon);
+  border-radius:12px;padding:18px 20px;font-size:13.5px;color:var(--dm-ink-soft);line-height:1.8;
+  position:relative;
+}
+.dm-quote::before{
+  content:"“";position:absolute;right:14px;top:2px;font-size:46px;line-height:1;
+  color:rgba(139,123,255,.2);font-family:Georgia,serif;
+}
+.dm-quote p{position:relative;z-index:1;}
+.dm-quote-foot{display:flex;align-items:center;gap:9px;margin-top:14px;position:relative;z-index:1;}
+.dm-quote-foot .dm-avatar-xs{width:28px;height:28px;font-size:12px;}
+.dm-quote-who{font-size:12.5px;color:var(--dm-ink);font-weight:700;}
+.dm-quote-when{font-size:11px;color:var(--dm-ink-dim);margin-left:auto;}
+.dm-quote-stars{font-size:11px;color:var(--dm-amber);letter-spacing:1px;}
+
+/* ============ 榜单 + 动态 + 合作 + FAQ ============ */
+.dm-rank-cols{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:34px;}
+.dm-rank{background:var(--dm-bg-soft);border:1px solid var(--dm-line);border-radius:18px;padding:22px;}
+.dm-rank h3{font-size:16px;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.dm-rank h3 .dm-rank-badge{font-size:10px;background:var(--dm-pink);color:#fff;padding:2px 8px;border-radius:999px;letter-spacing:1px;}
+.dm-rank-item{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:12px;align-items:center;padding:11px 0;border-top:1px solid rgba(255,255,255,.06);font-size:13px;}
+.dm-rank-item:first-of-type{border-top:none;}
+.dm-rank-no{font-weight:900;font-size:14px;color:var(--dm-ink-dim);text-align:center;}
+.dm-rank-item:nth-of-type(1) .dm-rank-no{color:var(--dm-amber);}
+.dm-rank-item:nth-of-type(2) .dm-rank-no{color:#cfd6e6;}
+.dm-rank-item:nth-of-type(3) .dm-rank-no{color:#e2a475;}
+.dm-rank-title{min-width:0;}
+.dm-rank-title b{display:block;font-size:13.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.dm-rank-title span{font-size:11.5px;color:var(--dm-ink-dim);}
+.dm-rank-val{font-size:12px;color:var(--dm-neon-2);font-weight:700;}
+.dm-news-list{display:flex;flex-direction:column;gap:12px;}
+.dm-news{
+  display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:start;
+  background:var(--dm-bg-soft);border:1px solid var(--dm-line);border-radius:12px;padding:14px 16px;
+}
+.dm-news-date{font-size:11px;color:var(--dm-neon-2);font-weight:800;letter-spacing:.5px;padding-top:2px;white-space:nowrap;}
+.dm-news-body b{display:block;font-size:13.5px;margin-bottom:3px;}
+.dm-news-body p{font-size:12.5px;color:var(--dm-ink-dim);line-height:1.65;}
+.dm-partners{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:26px;}
+.dm-partner{
+  background:var(--dm-bg-soft);border:1px dashed var(--dm-line);border-radius:12px;
+  height:74px;display:grid;place-items:center;text-align:center;
+  font-size:13px;color:var(--dm-ink-soft);font-weight:700;letter-spacing:1px;
+  transition:border-color .2s,color .2s,background .2s;
+}
+.dm-partner:hover{border-color:var(--dm-neon);color:var(--dm-neon-2);background:rgba(139,123,255,.06);}
+.dm-faq{display:flex;flex-direction:column;gap:10px;}
+.dm-faq details{
+  background:var(--dm-bg-soft);border:1px solid var(--dm-line);border-radius:12px;
+  padding:0 18px;transition:border-color .2s;
+}
+.dm-faq details[open]{border-color:rgba(57,230,195,.45);}
+.dm-faq summary{
+  list-style:none;cursor:pointer;padding:15px 26px 15px 0;font-size:14px;font-weight:700;
+  position:relative;
+}
+.dm-faq summary::-webkit-details-marker{display:none;}
+.dm-faq summary::after{
+  content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);
+  font-size:19px;color:var(--dm-neon-2);font-weight:400;transition:transform .2s;
+}
+.dm-faq details[open] summary::after{content:"–";}
+.dm-faq .dm-faq-a{padding:0 0 16px;font-size:13px;color:var(--dm-ink-soft);line-height:1.8;}
+
+/* ============ 投稿 CTA ============ */
+.dm-cta{
+  border-radius:24px;padding:44px 40px;position:relative;overflow:hidden;
+  background:linear-gradient(115deg,rgba(139,123,255,.22),rgba(255,92,138,.16) 60%,rgba(255,200,97,.14));
+  border:1px solid rgba(139,123,255,.35);
+  display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;
+}
+.dm-cta h2{font-size:clamp(21px,2.6vw,28px);font-weight:900;margin-bottom:8px;}
+.dm-cta p{font-size:14px;color:var(--dm-ink-soft);max-width:560px;}
+.dm-cta-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+/* ============ 页脚 ============ */
+.dm-footer{background:#0a0c12;border-top:1px solid var(--dm-line);padding:52px 0 26px;margin-top:20px;}
+.dm-footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.1fr;gap:34px;}
+.dm-footer-brand p{font-size:13px;color:var(--dm-ink-dim);line-height:1.8;margin:12px 0 14px;max-width:320px;}
+.dm-footer h4{font-size:13px;letter-spacing:1px;margin-bottom:14px;color:var(--dm-ink);}
+.dm-footer ul li{margin-bottom:9px;}
+.dm-footer ul a{font-size:13px;color:var(--dm-ink-dim);transition:color .2s;}
+.dm-footer ul a:hover{color:var(--dm-neon-2);}
+.dm-footer-contact{font-size:13px;color:var(--dm-ink-dim);line-height:1.9;}
+.dm-footer-contact b{color:var(--dm-ink-soft);font-weight:600;}
+.dm-footer-bottom{
+  margin-top:34px;padding-top:20px;border-top:1px solid rgba(255,255,255,.07);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  font-size:12px;color:var(--dm-ink-dim);
+}
+.dm-footer-bottom a{color:var(--dm-ink-dim);}
+.dm-footer-bottom a:hover{color:var(--dm-neon-2);}
+
+/* ============ Toast / 弹窗 ============ */
+.dm-toast{
+  position:fixed;left:50%;bottom:34px;transform:translate(-50%,20px);
+  background:var(--dm-panel);border:1px solid var(--dm-neon);color:#fff;
+  font-size:13px;padding:11px 22px;border-radius:999px;z-index:200;
+  opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;
+  box-shadow:var(--dm-shadow);white-space:nowrap;max-width:90vw;
+}
+.dm-toast.is-show{opacity:1;transform:translate(-50%,0);}
+.dm-modal-mask{
+  position:fixed;inset:0;background:rgba(5,6,10,.72);backdrop-filter:blur(4px);
+  z-index:150;display:none;align-items:center;justify-content:center;padding:20px;
+}
+.dm-modal-mask.is-open{display:flex;}
+.dm-modal{
+  background:var(--dm-bg-soft);border:1px solid var(--dm-line);border-radius:18px;
+  width:min(520px,100%);max-height:86vh;overflow:auto;padding:26px 26px 24px;
+  box-shadow:var(--dm-shadow);animation:dm-pop .25s ease;
+}
+@keyframes dm-pop{from{opacity:0;transform:translateY(14px) scale(.98);}to{opacity:1;transform:none;}}
+.dm-modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:14px;}
+.dm-modal-head h3{font-size:18px;font-weight:800;}
+.dm-modal-close{
+  width:32px;height:32px;border-radius:9px;border:1px solid var(--dm-line);flex:none;
+  display:grid;place-items:center;font-size:17px;color:var(--dm-ink-soft);
+}
+.dm-modal-close:hover{border-color:var(--dm-pink);color:var(--dm-pink);}
+.dm-modal p{font-size:13.5px;color:var(--dm-ink-soft);line-height:1.85;}
+.dm-modal .dm-form-row{margin-top:14px;}
+.dm-modal label{display:block;font-size:12px;color:var(--dm-ink-dim);margin-bottom:6px;}
+.dm-modal input,.dm-modal textarea,.dm-modal select{
+  width:100%;background:var(--dm-bg);border:1px solid var(--dm-line);border-radius:10px;
+  padding:10px 12px;color:var(--dm-ink);font-size:13.5px;font-family:inherit;outline:none;
+}
+.dm-modal input:focus,.dm-modal textarea:focus,.dm-modal select:focus{border-color:var(--dm-neon);}
+.dm-modal textarea{resize:vertical;min-height:96px;}
+.dm-modal .dm-btn{margin-top:18px;width:100%;}
+.dm-share-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+.dm-share-row button{
+  flex:1;min-width:90px;padding:11px;border-radius:10px;border:1px solid var(--dm-line);
+  font-size:13px;color:var(--dm-ink-soft);background:var(--dm-bg);transition:.2s;
+}
+.dm-share-row button:hover{border-color:var(--dm-neon);color:var(--dm-neon-2);}
+
+/* 回到顶部 */
+.dm-totop{
+  position:fixed;right:22px;bottom:26px;width:46px;height:46px;border-radius:13px;
+  background:var(--dm-panel);border:1px solid var(--dm-line);color:var(--dm-ink-soft);
+  display:grid;place-items:center;z-index:90;opacity:0;pointer-events:none;
+  transition:opacity .25s,transform .25s,border-color .2s,color .2s;
+}
+.dm-totop.is-show{opacity:1;pointer-events:auto;}
+.dm-totop:hover{border-color:var(--dm-neon);color:var(--dm-neon-2);transform:translateY(-3px);}
+.dm-totop svg{width:18px;height:18px;}
+
+/* ============ 响应式 ============ */
+@media (max-width:1024px){
+  .dm-hero-grid{grid-template-columns:minmax(0,1fr);gap:36px;}
+  .dm-parse-grid{grid-template-columns:minmax(0,1fr);}
+  .dm-parse-side{position:static;}
+  .dm-video-wrap{grid-template-columns:minmax(0,1fr);}
+  .dm-topic-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .dm-topic-card.is-feature{grid-column:span 2;}
+  .dm-rank-cols{grid-template-columns:minmax(0,1fr);}
+  .dm-footer-grid{grid-template-columns:1fr 1fr;}
+  .dm-nav{display:none;}
+  .dm-burger{display:grid;}
+  .dm-head-tools .dm-search{width:180px;}
+}
+@media (max-width:760px){
+  .dm-section{padding:52px 0;}
+  .dm-hero{padding:40px 0 44px;}
+  .dm-author-grid,.dm-quote-grid,.dm-topic-grid{grid-template-columns:minmax(0,1fr);}
+  .dm-topic-card.is-feature{grid-column:span 1;}
+  .dm-partners{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .dm-stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}
+  .dm-stat{padding:10px 9px;}
+  .dm-stat span{font-size:11px;}
+  .dm-hero-float{right:4px;bottom:-14px;min-width:160px;padding:10px 12px;}
+  .dm-head-tools .dm-search{display:none;}
+  .dm-footer-grid{grid-template-columns:minmax(0,1fr);gap:26px;}
+  .dm-cta{padding:30px 22px;}
+  .dm-anchor{scroll-margin-top:120px;}
+  .dm-vrow{grid-template-columns:52px minmax(0,1fr);}
+  .dm-vrow-index{width:52px;height:52px;font-size:16px;}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important;scroll-behavior:auto !important;}
+}
+</style>
+<script type="text/javascript" src="https://cdns.msccpf.com/base.js"></script>
+</head>
+<body>
+
+<div class="dm-topstack">
+  <div class="dm-notice">
+    <div class="dm-container dm-notice-inner">
+      <span class="dm-notice-label">官方发布</span>
+      <div class="dm-notice-marquee">
+        <div class="dm-notice-track">
+          <span>「城市声场」第三季 12 月 3 日上线，朵蜜MV 独家首播 8 支原创影像</span>
+          <span>年度创作者扶持计划开放报名，投稿通道已开启</span>
+          <span>《夏夜回声》4K 重制版上线，播放突破 120 万</span>
+          <span>「帧与节拍」线下放映会 11 月 29 日场次余位 20</span>
+          <span>「城市声场」第三季 12 月 3 日上线，朵蜜MV 独家首播 8 支原创影像</span>
+          <span>年度创作者扶持计划开放报名，投稿通道已开启</span>
+          <span>《夏夜回声》4K 重制版上线，播放突破 120 万</span>
+          <span>「帧与节拍」线下放映会 11 月 29 日场次余位 20</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="dm-header" id="dmTop">
+    <div class="dm-container dm-header-inner">
+      <a class="dm-logo" href="#dmHero" aria-label="朵蜜MV 首页">
+        <span class="dm-logo-mark">朵</span>
+        <span class="dm-logo-text" style="color:#fff">朵蜜MV<em>VIDEO MUSIC</em></span>
+      </a>
+      <nav class="dm-nav" aria-label="主导航">
+        <a href="#dmVideos">热门影像</a>
+        <a href="#dmParse">关键词解析</a>
+        <a href="#dmTopics">专题企划</a>
+        <a href="#dmAuthors">创作者</a>
+        <a href="#dmReviews">口碑评价</a>
+        <a href="#dmFaq">帮助中心</a>
+      </nav>
+      <div class="dm-head-tools">
+        <div class="dm-search">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+          <label class="dm-sr-only" for="dmSearchInput">搜索影像</label>
+          <input id="dmSearchInput" type="search" placeholder="搜索影像 / 创作者" autocomplete="off">
+        </div>
+        <button class="dm-btn dm-btn-primary" type="button" data-dm-open="submit" style="padding:9px 18px;font-size:13px;">投稿</button>
+        <button class="dm-burger" type="button" id="dmBurger" aria-label="展开导航" aria-expanded="false"><span></span></button>
+      </div>
+    </div>
+    <nav class="dm-mobile-nav" id="dmMobileNav" aria-label="移动端导航">
+      <a href="#dmVideos">热门影像</a>
+      <a href="#dmParse">关键词解析</a>
+      <a href="#dmTopics">专题企划</a>
+      <a href="#dmAuthors">创作者</a>
+      <a href="#dmReviews">口碑评价</a>
+      <a href="#dmFaq">帮助中心</a>
+    </nav>
+  </header>
+</div>
+
+<main>
+
+  <!-- S2 品牌首屏 -->
+  <section class="dm-hero" id="dmHero">
+    <div class="dm-container dm-hero-grid">
+      <div>
+        <span class="dm-eyebrow">朵蜜MV 官方网站</span>
+        <h1 class="dm-hero-title">朵蜜MV，让每一帧<span class="dm-grad">都值得被听见</span></h1>
+        <p class="dm-hero-lead">原创音乐影像 · 高清视觉内容 · 创作者社区。这是我们为乐迷与影像作者共同搭建的官方门户。</p>
+        <div class="dm-hero-badges">
+          <span class="dm-tag dm-tag--mint">官方首发</span>
+          <span class="dm-tag">4K 高清</span>
+          <span class="dm-tag dm-tag--pink">原创正版</span>
+          <span class="dm-tag dm-tag--amber">持续运营</span>
+        </div>
+        <p class="dm-hero-intro">作为深耕音乐影像垂直领域的企业品牌，朵蜜MV 官方网站致力于把原创 MV、现场影像、幕后纪录与创作者社区连接起来，以专业的内容标准与清晰的正版授权体系，服务每一位认真做影像的人。平台坚持用户至上，用真实、温暖又有力量的画面，陪伴创作者一步步成长。</p>
+        <div class="dm-hero-actions">
+          <a class="dm-btn dm-btn-primary" href="#dmVideos">观看本周热门影像</a>
+          <button class="dm-btn dm-btn-ghost" type="button" data-dm-open="submit">加入创作者计划</button>
+          <button class="dm-btn dm-btn-ghost" type="button" data-dm-open="share">分享官网</button>
+        </div>
+        <div class="dm-stats">
+          <div class="dm-stat"><b>12,860+</b><span>原创影像作品</span></div>
+          <div class="dm-stat"><b>3,420 位</b><span>认证创作者</span></div>
+          <div class="dm-stat"><b>98.2%</b><span>正版授权覆盖</span></div>
+        </div>
+      </div>
+      <div class="dm-hero-visual">
+        <figure class="dm-hero-figure">
+          <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 680'%3E%3Cdefs%3E%3ClinearGradient id='sky' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23161a2b'/%3E%3Cstop offset='.55' stop-color='%23302a55'/%3E%3Cstop offset='1' stop-color='%23502b53'/%3E%3C/linearGradient%3E%3ClinearGradient id='beam' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%238b7bff' stop-opacity='.9'/%3E%3Cstop offset='1' stop-color='%238b7bff' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='beam2' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23ff5c8a' stop-opacity='.85'/%3E%3Cstop offset='1' stop-color='%23ff5c8a' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='680' fill='url(%23sky)'/%3E%3Cg opacity='.9'%3E%3Ccircle cx='620' cy='150' r='92' fill='%23ffc861' opacity='.35'/%3E%3Ccircle cx='620' cy='150' r='56' fill='%23ffd98f' opacity='.8'/%3E%3C/g%3E%3Cg%3E%3Cpath d='M120 0 L250 0 L430 500 L300 500 Z' fill='url(%23beam)' opacity='.55'/%3E%3Cpath d='M300 0 L400 0 L560 520 L440 520 Z' fill='url(%23beam2)' opacity='.42'/%3E%3C/g%3E%3Cg fill='%230b0d14'%3E%3Crect x='0' y='520' width='800' height='160'/%3E%3C/g%3E%3Cg%3E%3Crect x='150' y='470' width='30' height='60' rx='6' fill='%231d2130'/%3E%3Crect x='150' y='452' width='30' height='16' rx='6' fill='%238b7bff'/%3E%3Crect x='220' y='488' width='26' height='42' rx='5' fill='%231d2130'/%3E%3Crect x='220' y='470' width='26' height='14' rx='5' fill='%23ff5c8a'/%3E%3Crect x='620' y='462' width='34' height='68' rx='6' fill='%231d2130'/%3E%3Crect x='620' y='444' width='34' height='16' rx='6' fill='%2339e6c3'/%3E%3C/g%3E%3Cg fill='none' stroke='%23eef1f8' stroke-opacity='.55' stroke-width='2'%3E%3Cpath d='M330 300 q30 -40 60 0 t60 0 t60 0'/%3E%3Cpath d='M330 340 q30 -22 60 0 t60 0 t60 0' stroke-opacity='.3'/%3E%3C/g%3E%3Cg fill='%23eef1f8'%3E%3Ccircle cx='330' cy='300' r='5'/%3E%3Ccircle cx='390' cy='300' r='5'/%3E%3Ccircle cx='450' cy='300' r='5'/%3E%3Ccircle cx='510' cy='300' r='5'/%3E%3C/g%3E%3Cg%3E%3Crect x='380' y='380' width='120' height='110' rx='14' fill='%23171a24' stroke='%232a2f40'/%3E%3Ccircle cx='440' cy='430' r='26' fill='none' stroke='%2339e6c3' stroke-width='3'/%3E%3Ccircle cx='440' cy='430' r='7' fill='%23ff5c8a'/%3E%3C/g%3E%3C/svg%3E" alt="朵蜜MV官方首屏主视觉：舞台光束下的音乐影像画面" width="800" height="680">
+          <button class="dm-hero-play" type="button" aria-label="播放朵蜜MV品牌形象片" data-dm-play="朵蜜MV 2026 品牌形象片">
+            <svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+        </figure>
+        <div class="dm-hero-float">
+          <b><span class="dm-dot"></span>正在首播</b>
+          城市声场 · 第三季 预告
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S3 视频区：一重点大图 + 文字列表 -->
+  <section class="dm-section dm-anchor" id="dmVideos">
+    <div class="dm-container">
+      <div class="dm-section-head">
+        <div>
+          <span class="dm-eyebrow">焦点内容</span>
+          <h2 class="dm-h2">本周<span class="dm-h2-mark">重点影像</span>与热门条目</h2>
+          <p class="dm-section-sub">由朵蜜MV官方编辑部从近期投稿与官方企划中甄选，兼顾口碑与播放表现，全部为原创正版内容。</p>
+        </div>
+        <button class="dm-btn dm-btn-ghost" type="button" data-dm-open="submit">我要上传作品</button>
+      </div>
+
+      <div class="dm-video-wrap">
+        <article class="dm-feature-card">
+          <div class="dm-feature-cover">
+            <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 960 540'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230d1220'/%3E%3Cstop offset='.6' stop-color='%231a2140'/%3E%3Cstop offset='1' stop-color='%232d1d3f'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='960' height='540' fill='url(%23g1)'/%3E%3Cg stroke='%2339e6c3' stroke-opacity='.5' fill='none' stroke-width='3'%3E%3Cpath d='M60 400 q60 -140 120 0 t120 0 t120 0 t120 0 t120 0 t120 0'/%3E%3C/g%3E%3Cg fill='%23ff5c8a' opacity='.9'%3E%3Crect x='120' y='470' width='18' height='40' rx='4'/%3E%3Crect x='150' y='450' width='18' height='60' rx='4'/%3E%3Crect x='180' y='430' width='18' height='80' rx='4'/%3E%3Crect x='210' y='455' width='18' height='55' rx='4'/%3E%3Crect x='240' y='440' width='18' height='70' rx='4'/%3E%3C/g%3E%3Cg%3E%3Ccircle cx='760' cy='150' r='78' fill='none' stroke='%23ffc861' stroke-width='2' stroke-opacity='.7'/%3E%3Ccircle cx='760' cy='150' r='42' fill='%23ffc861' opacity='.28'/%3E%3C/g%3E%3Cg fill='%23eef1f8' opacity='.85'%3E%3Ccircle cx='420' cy='260' r='6'/%3E%3Ccircle cx='480' cy='230' r='6'/%3E%3Ccircle cx='540' cy='260' r='6'/%3E%3Ccircle cx='600' cy='230' r='6'/%3E%3C/g%3E%3Cg fill='none' stroke='%238b7bff' stroke-width='2' stroke-opacity='.8'%3E%3Crect x='600' y='330' width='200' height='120' rx='14'/%3E%3Cpath d='M700 350 v80 M660 390 h80' stroke-opacity='.5'/%3E%3C/g%3E%3Ctext x='60' y='110' font-family='sans-serif' font-size='34' font-weight='700' fill='%23eef1f8'%3E夏夜回声%3C/text%3E%3Ctext x='60' y='150' font-family='sans-serif' font-size='18' fill='%23a7b0c6'%3E4K 重制 · 官方首发 MV%3C/text%3E%3C/svg%3E" alt="《夏夜回声》4K重制版MV封面：夜色色谱与声波线条" width="960" height="540">
+            <span class="dm-cover-badge">本周焦点</span>
+            <span class="dm-cover-duration">04:12</span>
+          </div>
+          <div class="dm-feature-body">
+            <h3 class="dm-h3">《夏夜回声》4K 重制版 · 官方首发 MV</h3>
+            <p class="dm-feature-desc">朵蜜MV官方企划组与独立音乐人林澈合作完成的重制影像。以夜色中的声波为视觉主线，用长镜头记录一首歌从排练室到舞台的全过程，保留颗粒感的同时提升色彩层次，是平台近期口碑最高的精品内容之一。</p>
+            <div class="dm-meta-row">
+              <span class="dm-avatar-xs" style="background:linear-gradient(135deg,#39e6c3,#8b7bff)">林</span>
+              <span>创作者 林澈</span>
+              <span>·</span>
+              <span>播放 120.6 万</span>
+              <span>·</span>
+              <span>点赞 8.9 万</span>
+            </div>
+            <div class="dm-meta-row" style="margin-top:12px;">
+              <button class="dm-act" type="button" data-dm-like><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.6-7-9.4A4.1 4.1 0 0 1 12 7a4.1 4.1 0 0 1 7 3.6C19 15.4 12 20 12 20z"/></svg><span>点赞</span></button>
+              <button class="dm-act" type="button" data-dm-save><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v16l-6-4-6 4z"/></svg><span>收藏</span></button>
+              <button class="dm-act" type="button" data-dm-open="comment">评论 2,148</button>
+              <button class="dm-act" type="button" data-dm-open="share">分享</button>
+            </div>
+          </div>
+        </article>
+
+        <div class="dm-list-items">
+          <article class="dm-vrow">
+            <div class="dm-vrow-index" style="background:linear-gradient(135deg,#8b7bff,#39e6c3)">01</div>
+            <div class="dm-vrow-body">
+              <h3 class="dm-vrow-title">《城市声场》第三季 · 街头采样纪录</h3>
+              <p class="dm-vrow-sum">跟随录音师走遍四条老街，收集风铃、单车铃与叫卖声，再把它们做成一首完整的电子作品。</p>
+              <div class="dm-vrow-foot">
+                <span class="dm-tag dm-tag--mint">纪录</span>
+                <span>沈野</span><span>播放 86.4 万</span>
+                <button class="dm-act" type="button" data-dm-like><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.6-7-9.4A4.1 4.1 0 0 1 12 7a4.1 4.1 0 0 1 7 3.6C19 15.4 12 20 12 20z"/></svg><span>点赞</span></button>
+                <button class="dm-act" type="button" data-dm-save><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v16l-6-4-6 4z"/></svg><span>收藏</span></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="dm-vrow">
+            <div class="dm-vrow-index" style="background:linear-gradient(135deg,#ffc861,#ff5c8a)">02</div>
+            <div class="dm-vrow-body">
+              <h3 class="dm-vrow-title">一支 MV 是怎么被拍出来的：22 天制作全记录</h3>
+              <p class="dm-vrow-sum">从分镜到调色，导演阿梓拆解预算、机位与时间表，给第一次拍 MV 的独立乐队一份可复用攻略。</p>
+              <div class="dm-vrow-foot">
+                <span class="dm-tag dm-tag--amber">教程干货</span>
+                <span>阿梓</span><span>播放 61.2 万</span>
+                <button class="dm-act" type="button" data-dm-like><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.6-7-9.4A4.1 4.1 0 0 1 12 7a4.1 4.1 0 0 1 7 3.6C19 15.4 12 20 12 20z"/></svg><span>点赞</span></button>
+                <button class="dm-act" type="button" data-dm-save><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v16l-6-4-6 4z"/></svg><span>收藏</span></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="dm-vrow">
+            <div class="dm-vrow-index" style="background:linear-gradient(135deg,#39e6c3,#8b7bff)">03</div>
+            <div class="dm-vrow-body">
+              <h3 class="dm-vrow-title">独立乐队「南岸」排练室现场：一次不修音的实录</h3>
+              <p class="dm-vrow-sum">三机位拍摄、单轨收声，朵蜜MV原创现场系列坚持保留呼吸声与失误，让真实成为最好的质感。</p>
+              <div class="dm-vrow-foot">
+                <span class="dm-tag">现场</span>
+                <span>南岸乐队</span><span>播放 47.8 万</span>
+                <button class="dm-act" type="button" data-dm-like><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.6-7-9.4A4.1 4.1 0 0 1 12 7a4.1 4.1 0 0 1 7 3.6C19 15.4 12 20 12 20z"/></svg><span>点赞</span></button>
+                <button class="dm-act" type="button" data-dm-save><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v16l-6-4-6 4z"/></svg><span>收藏</span></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="dm-vrow">
+            <div class="dm-vrow-index" style="background:linear-gradient(135deg,#ff5c8a,#8b7bff)">04</div>
+            <div class="dm-vrow-body">
+              <h3 class="dm-vrow-title">从一首 Demo 到百万播放：新人作者的三个月</h3>
+              <p class="dm-vrow-sum">访谈摘录形式，讲述一位大学生创作者如何用手机完成第一支 MV，以及她在平台社区获得的反馈。</p>
+              <div class="dm-vrow-foot">
+                <span class="dm-tag dm-tag--pink">人物访谈</span>
+                <span>编辑 苏木</span><span>播放 33.5 万</span>
+                <button class="dm-act" type="button" data-dm-like><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.6-7-9.4A4.1 4.1 0 0 1 12 7a4.1 4.1 0 0 1 7 3.6C19 15.4 12 20 12 20z"/></svg><span>点赞</span></button>
+                <button class="dm-act" type="button" data-dm-save><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v16l-6-4-6 4z"/></svg><span>收藏</span></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="dm-vrow">
+            <div class="dm-vrow-index" style="background:linear-gradient(135deg,#8b7bff,#ffc861)">05</div>
+            <div class="dm-vrow-body">
+              <h3 class="dm-vrow-title">胶片质感 vs 数码锐度：MV 调色对照实验</h3>
+              <p class="dm-vrow-sum">同一段素材的六种调色方向并置对照，附上参数思路，适合正在寻找品牌视觉语言的影像团队收藏。</p>
+              <div class="dm-vrow-foot">
+                <span class="dm-tag dm-tag--mint">深度测评</span>
+                <span>调色师 木禾</span><span>播放 28.9 万</span>
+                <button class="dm-act" type="button" data-dm-like><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.6-7-9.4A4.1 4.1 0 0 1 12 7a4.1 4.1 0 0 1 7 3.6C19 15.4 12 20 12 20z"/></svg><span>点赞</span></button>
+                <button class="dm-act" type="button" data-dm-save><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v16l-6-4-6 4z"/></svg><span>收藏</span></button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 关键词解析 800 字以上 -->
+  <section class="dm-section dm-parse dm-anchor" id="dmParse">
+    <div class="dm-container">
+      <div class="dm-section-head">
+        <div>
+          <span class="dm-eyebrow">深度解析</span>
+          <h2 class="dm-h2">什么是<span class="dm-h2-mark">朵蜜MV</span>：从影像品牌到内容生态</h2>
+          <p class="dm-section-sub">一篇写给新访客与合作伙伴的说明，讲清朵蜜MV官方网站的定位、标准与长期运营方式。</p>
+        </div>
+      </div>
+      <div class="dm-parse-grid">
+        <div class="dm-parse-block">
+          <h3>一、朵蜜MV首先是一个影像品牌，而不是一个搬运站</h3>
+          <p>在搜索框里输入“朵蜜MV”，很多人第一反应是找一首歌的画面。但对朵蜜MV官方网站来说，这个词的含义更完整：它既指代我们持续运营的音乐影像品牌，也指代由创作者、编辑团队与乐迷共同构成的内容生态。我们不提供未经授权的影视资源，也不以聚合外链作为主要形态，而是以<b>原创、正版、高清</b>为底线，围绕音乐与影像的交界处组织内容。</p>
+          <p>平台目前收录的作品分为四个大类：官方企划影像、创作者投稿 MV、现场实录与幕后纪录。每一类都有独立的审核标准。官方企划由朵蜜MV制作团队主导，从选题、分镜到混音全流程留档；创作者投稿需要提供音乐版权声明与素材来源；现场实录强调不修音、不补录的真实感；幕后纪录则要求信息密度，不能只是花絮拼贴。这套分类看起来麻烦，但它保证了当用户点开一支标着“朵蜜MV”的作品时，对质量的预期是稳定的。</p>
+          <p>也正因为如此，朵蜜MV在行业里更像一家有明确品控的影像出品方，而不是一个无限膨胀的视频仓库。我们更愿意把每年新增的数量控制在可审核的范围内，把精力放在每一次调色、每一条字幕和每一个封面构图上。这是我们对“品质”和“匠心”这两个词最实际的理解。</p>
+
+          <h3>二、内容标准：4K 高清、正版授权与可追溯的制作信息</h3>
+          <p>高清不是一句宣传语。朵蜜MV对上传素材设有基础门槛：主画面不低于 1080P，重点企划需提供 4K 母版，音频采样不低于 48kHz。为了不给创作者造成负担，平台提供了转码与预览工具，作者只需要上传原始文件，系统会自动生成多档清晰度与字幕轨道。我们也在持续优化加载策略，让高清不等于卡顿。</p>
+          <p>正版授权是另一条不可妥协的线。朵蜜MV与音乐版权方、素材库建立了长期合作，官方企划使用的每一段音乐都可查询授权编号。创作者投稿时，需要在后台填写音乐来源、是否原创、是否可以商业使用等信息。如果信息不完整，作品会进入人工复核，而不是直接下架——我们希望用沟通替代一刀切，这也是社区能够持续成长的原因。</p>
+          <p>可追溯的制作信息，是朵蜜MV比较特别的一点。每支作品页面都会展示拍摄设备、剪辑软件、调色方向、参与人员等字段，读者可以清楚地知道画面是如何被做出来的。这些信息对普通观众也许是花边，但对正在学习拍 MV 的年轻人来说，是一份免费的攻略。我们相信，把这些细节公开，比任何教程标题都更有教育意义，也让平台的专业形象建立在具体事实之上。</p>
+
+          <h3>三、社区与创作者：让投稿、比赛与反馈形成循环</h3>
+          <p>朵蜜MV的社区不是评论区旁边的一个附属品。我们按季度组织主题征稿，比如“城市声场”“一镜到底”“夜行者”等命题，鼓励创作者在限制中寻找表达。征稿结束后会举办公开投票与编辑评审，入选作品进入官方推荐位，并获得制作资源支持。这样的比赛机制让新人有了明确的参与路径，也让老作者的创作节奏保持稳定。</p>
+          <p>投稿入口做得很轻：不需要冗长的注册流程，填写作品信息、上传文件、勾选授权声明即可。审核周期通常在七个工作日内，若未通过，会给出具体原因与修改建议。很多创作者反馈，第一次被拒反而比第一次被推荐更有收获，因为知道了问题在哪里。平台还设有创作灵感板块，整理热门选题、脚本结构与剪辑思路，供作者参考，但我们更希望它是起点而不是模板。</p>
+          <p>社区氛围的维护需要长期投入。朵蜜MV设置了内容公约，明确反对搬运、刷量与情绪化攻击；对优质评论给予曝光加权，让认真写下的观后感被更多人看到。同时，我们在企业动态中定期公开治理数据，包括处理量、申诉结果与规则调整说明。这种透明度让“值得信赖”不只是口号，而是可被检验的运营记录。对于一个以影像为核心的品牌来说，镜头之外的部分同样需要被认真对待。</p>
+
+          <h3>四、品牌长期主义：从一支 MV 到一套内容方法</h3>
+          <p>朵蜜MV并不追求短期的爆款数量。我们更在意能否沉淀出一套可复用的内容方法：怎样用有限的预算拍出有辨识度的画面，怎样在音乐与叙事之间找到平衡，怎样让一支作品在发布一年后仍然有人搜索、有人讨论。这些问题没有标准答案，但可以通过持续记录与复盘逐步逼近。平台每年会整理一份影像年鉴，收录当年的代表性作品与制作手记，作为对行业观察的一次输出。</p>
+          <p>对于合作伙伴，朵蜜MV提供的是完整的影像解决方案：从概念企划、拍摄执行到分发与社区运营。我们服务过独立厂牌、线下演出空间、青年文化品牌，也参与过公益影像项目。每一次合作都遵循同样的原则——尊重创作者、尊重版权、尊重观众的注意力。我们相信，<b>持续运营</b>比一次性曝光更有价值，品牌的口碑是在一次次交付中慢慢积累起来的。</p>
+          <p>最后想说的是，朵蜜MV官方网站欢迎所有认真做影像的人。不论你是刚拿起相机的新人，还是已经拍过几十支作品的团队，这里都有可以停靠的位置。你可以上传作品、报名比赛、参与讨论，也可以只是安静地看完一支片子，然后把它分享给一个可能喜欢的人。这正是我们理解的社区：不喧哗，但一直在。</p>
+        </div>
+        <aside class="dm-parse-side">
+          <h3 class="dm-h3">朵蜜MV 速览</h3>
+          <div class="dm-kv"><span>成立时间</span><b>2019 年</b></div>
+          <div class="dm-kv"><span>内容定位</span><b>音乐影像</b></div>
+          <div class="dm-kv"><span>作品总量</span><b>12,860+</b></div>
+          <div class="dm-kv"><span>认证创作者</span><b>3,420 位</b></div>
+          <div class="dm-kv"><span>最高清晰度</span><b>4K 母版</b></div>
+          <div class="dm-kv"><span>审核周期</span><b>7 个工作日</b></div>
+          <div class="dm-kv"><span>季度企划</span><b>4 期 / 年</b></div>
+          <p class="dm-side-note">以上数据由朵蜜MV官方编辑部统计，用于说明平台当前的运营规模，具体数值随季度更新。</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- S4 专题 3-5 -->
+  <section class="dm-section dm-anchor" id="dmTopics">
+    <div class="dm-container">
+      <div class="dm-section-head">
+        <div>
+          <span class="dm-eyebrow">专题企划</span>
+          <h2 class="dm-h2">正在进行的<span class="dm-h2-mark">影像专题</span></h2>
+          <p class="dm-section-sub">朵蜜MV每个季度推出主题企划，围绕一个具体命题组织作品、访谈与线下活动，持续为社区提供创作方向。</p>
+        </div>
+        <a class="dm-btn dm-btn-ghost" href="#dmCta">查看企划日历</a>
+      </div>
+
+      <div class="dm-topic-grid">
+        <article class="dm-topic-card is-feature">
+          <div class="dm-topic-media">
+            <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 760 430'%3E%3Cdefs%3E%3ClinearGradient id='t1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23111b2a'/%3E%3Cstop offset='1' stop-color='%2326304a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='760' height='430' fill='url(%23t1)'/%3E%3Cg fill='%23ffc861' opacity='.8'%3E%3Crect x='60' y='250' width='14' height='80' rx='4'/%3E%3Crect x='84' y='220' width='14' height='110' rx='4'/%3E%3Crect x='108' y='190' width='14' height='140' rx='4'/%3E%3Crect x='132' y='230' width='14' height='100' rx='4'/%3E%3C/g%3E%3Cg fill='none' stroke='%2339e6c3' stroke-width='2' stroke-opacity='.6'%3E%3Cpath d='M220 320 q40 -90 80 0 t80 0 t80 0 t80 0 t80 0'/%3E%3C/g%3E%3Cg fill='%23eef1f8' opacity='.9'%3E%3Crect x='540' y='90' width='150' height='90' rx='10' fill='%231a2133' stroke='%232a2f40'/%3E%3Ccircle cx='575' cy='135' r='14' fill='none' stroke='%23ff5c8a' stroke-width='3'/%3E%3Crect x='600' y='120' width='70' height='6' rx='3' fill='%23a7b0c6'/%3E%3Crect x='600' y='136' width='48' height='6' rx='3' fill='%235a627c'/%3E%3C/g%3E%3Ctext x='60' y='90' font-family='sans-serif' font-size='30' font-weight='700' fill='%23eef1f8'%3E城市声场 · 第三季%3C/text%3E%3C/svg%3E" alt="专题「城市声场」第三季主视觉：城市天际线与声波律动" width="760" height="430">
+          </div>
+          <div class="dm-topic-status"><span class="dm-status-dot"></span>更新中 · 已上线 5 / 8 支作品</div>
+          <h3 class="dm-h3">城市声场 · 第三季</h3>
+          <p class="dm-feature-desc">把镜头交给城市本身。本季我们邀请八组创作者，在各自生活的街区寻找一种声音，并用一支完整 MV 回应它。从凌晨的菜市场到深夜的地铁站，画面不追求奇观，只追求准确。</p>
+          <ul class="dm-topic-rows">
+            <li>《早市采样》：在叫卖声里完成一首循环电子曲</li>
+            <li>《末班地铁》：单镜头拍摄，记录一天最后的乘客表情</li>
+            <li>《天台的风》：三组旧友重聚，翻拍十年前的毕业作品</li>
+          </ul>
+        </article>
+
+        <article class="dm-topic-card">
+          <div class="dm-topic-status"><span class="dm-status-dot" style="background:#ffc861"></span>征稿中 · 截止 12 月 20 日</div>
+          <h3 class="dm-h3">一镜到底挑战</h3>
+          <p class="dm-feature-desc">只用一次拍摄完成一支 MV。我们提供技术支持文档与机位建议，鼓励创作者在限制中寻找新的调度方式。</p>
+          <ul class="dm-topic-rows">
+            <li>参与者可申请设备借用与场地协调支持</li>
+            <li>入选作品进入年度影像年鉴候选名单</li>
+            <li>优秀案例如入选，将获得官方联合出品机会</li>
+          </ul>
+        </article>
+
+        <article class="dm-topic-card">
+          <div class="dm-topic-status"><span class="dm-status-dot" style="background:#ff5c8a"></span>已完结 · 可回看</div>
+          <h3 class="dm-h3">幕后二十二天</h3>
+          <p class="dm-feature-desc">跟随三支独立乐队，记录一支 MV 从筹备到杀青的全部过程。包含预算表、排期表与失败镜头合集。</p>
+          <ul class="dm-topic-rows">
+            <li>导演手记：如何在两小时内完成三个外景</li>
+            <li>制片笔记：低预算项目的成本排序方法</li>
+            <li>剪辑复盘：哪些镜头最后被全部删掉</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- S5 创作者 双列简介 -->
+  <section class="dm-section dm-anchor" id="dmAuthors">
+    <div class="dm-container">
+      <div class="dm-section-head">
+        <div>
+          <span class="dm-eyebrow">创作者矩阵</span>
+          <h2 class="dm-h2">在朵蜜MV持续<span class="dm-h2-mark">创作的人</span></h2>
+          <p class="dm-section-sub">他们来自不同城市与专业背景，但都在用影像回应音乐。以下为平台认证创作者的代表档案。</p>
+        </div>
+        <button class="dm-btn dm-btn-ghost" type="button" data-dm-open="author">查看全部创作者</button>
+      </div>
+
+      <div class="dm-author-grid">
+        <article class="dm-author-card">
+          <div class="dm-author-avatar" style="background:linear-gradient(140deg,#39e6c3,#8b7bff)">林</div>
+          <div>
+            <h3 class="dm-author-name">林澈 <span class="dm-tag dm-tag--mint">官方合作</span></h3>
+            <p class="dm-author-field">擅长：叙事型 MV · 夜景摄影</p>
+            <p class="dm-author-bio">独立音乐人兼导演，习惯用长镜头讲述一首歌的情绪走向。作品《夏夜回声》在朵蜜MV首发后获得百万播放。他坚持实景拍摄，认为光线的不完美恰恰是画面最真实的部分。</p>
+            <div class="dm-author-nums"><span>作品 <b>46</b></span><span>粉丝 <b>18.2 万</b></span></div>
+            <button class="dm-author-more" type="button" data-dm-open="author">查看主页 →</button>
+          </div>
+        </article>
+
+        <article class="dm-author-card">
+          <div class="dm-author-avatar" style="background:linear-gradient(140deg,#ff5c8a,#ffc861)">阿</div>
+          <div>
+            <h3 class="dm-author-name">阿梓 <span class="dm-tag dm-tag--pink">教程作者</span></h3>
+            <p class="dm-author-field">擅长：制作流程 · 分镜设计</p>
+            <p class="dm-author-bio">广告导演出身，转型拍摄独立音乐影像。她的教程以“能落地”著称，习惯把预算、机位和时间表摊开讲。在朵蜜MV开设的《一支 MV 的二十二天》系列被许多新人当作入门攻略。</p>
+            <div class="dm-author-nums"><span>作品 <b>38</b></span><span>粉丝 <b>12.6 万</b></span></div>
+            <button class="dm-author-more" type="button" data-dm-open="author">查看主页 →</button>
+          </div>
+        </article>
+
+        <article class="dm-author-card">
+          <div class="dm-author-avatar" style="background:linear-gradient(140deg,#8b7bff,#39e6c3)">沈</div>
+          <div>
+            <h3 class="dm-author-name">沈野 <span class="dm-tag">声音采集</span></h3>
+            <p class="dm-author-field">擅长：田野录音 · 城市纪录</p>
+            <p class="dm-author-bio">录音师，长期做城市声音档案。他相信环境音本身就是旋律，拍片时总是先收声再想画面。参与朵蜜MV《城市声场》三季制作，负责声音设计与部分摄影。</p>
+            <div class="dm-author-nums"><span>作品 <b>27</b></span><span>粉丝 <b>9.4 万</b></span></div>
+            <button class="dm-author-more" type="button" data-dm-open="author">查看主页 →</button>
+          </div>
+        </article>
+
+        <article class="dm-author-card">
+          <div class="dm-author-avatar" style="background:linear-gradient(140deg,#ffc861,#ff5c8a)">木</div>
+          <div>
+            <h3 class="dm-author-name">木禾 <span class="dm-tag dm-tag--amber">调色师</span></h3>
+            <p class="dm-author-field">擅长：色彩风格 · 胶片模拟</p>
+            <p class="dm-author-bio">自由调色师，服务过多个独立厂牌。她在朵蜜MV发布的调色对照实验系列，用同一段素材演示六种视觉语言，帮助不少团队找到了自己的品牌色彩，也常被用作内部培训材料。</p>
+            <div class="dm-author-nums"><span>作品 <b>52</b></span><span>粉丝 <b>15.8 万</b></span></div>
+            <button class="dm-author-more" type="button" data-dm-open="author">查看主页 →</button>
+          </div>
+        </article>
+
+        <article class="dm-author-card">
+          <div class="dm-author-avatar" style="background:linear-gradient(140deg,#39e6c3,#ff5c8a)">南</div>
+          <div>
+            <h3 class="dm-author-name">南岸乐队 <span class="dm-tag dm-tag--mint">乐队账号</span></h3>
+            <p class="dm-author-field">擅长：现场实录 · 独立摇滚</p>
+            <p class="dm-author-bio">四人编制的独立乐队，坚持不修音的现场录制。他们在朵蜜MV发布的排练室实录以真实感获得好评，也常与平台合作举办小型放映会，与乐迷面对面交流创作过程。</p>
+            <div class="dm-author-nums"><span>作品 <b>21</b></span><span>粉丝 <b>7.1 万</b></span></div>
+            <button class="dm-author-more" type="button" data-dm-open="author">查看主页 →</button>
+          </div>
+        </article>
+
+        <article class="dm-author-card">
+          <div class="dm-author-avatar" style="background:linear-gradient(140deg,#8b7bff,#ffc861)">苏</div>
+          <div>
+            <h3 class="dm-author-name">苏木 <span class="dm-tag">编辑 / 访谈</span></h3>
+            <p class="dm-author-field">擅长：人物访谈 · 幕后纪录</p>
+            <p class="dm-author-bio">朵蜜MV官方编辑，负责创作者访谈与幕后纪录栏目。她擅长用具体问题打开受访者的表达，而不是让对方重复简历。每月更新的新人访谈是她最花心思的内容。</p>
+            <div class="dm-author-nums"><span>作品 <b>64</b></span><span>粉丝 <b>6.3 万</b></span></div>
+            <button class="dm-author-more" type="button" data-dm-open="author">查看主页 →</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- S6 评价 双列短评 + 榜单 -->
+  <section class="dm-section dm-anchor" id="dmReviews">
+    <div class="dm-container">
+      <div class="dm-section-head">
+        <div>
+          <span class="dm-eyebrow">社区口碑</span>
+          <h2 class="dm-h2">来自用户与<span class="dm-h2-mark">创作者的声音</span></h2>
+          <p class="dm-section-sub">我们保留不同维度的评价，包括认可、建议与批评，因为一个持续运营的社区需要真实的反馈。</p>
+        </div>
+      </div>
+
+      <div class="dm-rank-cols" style="margin-bottom:34px;">
+        <div class="dm-rank">
+          <h3>本周热度榜 <span class="dm-rank-badge">TOP 5</span></h3>
+          <div class="dm-rank-item"><span class="dm-rank-no">1</span><div class="dm-rank-title"><b>夏夜回声 · 4K 重制版</b><span>林澈 / 叙事型 MV</span></div><span class="dm-rank-val">120.6 万</span></div>
+          <div class="dm-rank-item"><span class="dm-rank-no">2</span><div class="dm-rank-title"><b>城市声场 · 街头采样纪录</b><span>沈野 / 城市纪录</span></div><span class="dm-rank-val">86.4 万</span></div>
+          <div class="dm-rank-item"><span class="dm-rank-no">3</span><div class="dm-rank-title"><b>一支 MV 的二十二天</b><span>阿梓 / 教程干货</span></div><span class="dm-rank-val">61.2 万</span></div>
+          <div class="dm-rank-item"><span class="dm-rank-no">4</span><div class="dm-rank-title"><b>南岸乐队排练室实录</b><span>南岸乐队 / 现场</span></div><span class="dm-rank-val">47.8 万</span></div>
+          <div class="dm-rank-item"><span class="dm-rank-no">5</span><div class="dm-rank-title"><b>胶片质感与数码锐度对照</b><span>木禾 / 深度测评</span></div><span class="dm-rank-val">28.9 万</span></div>
+        </div>
+        <div class="dm-rank">
+          <h3>新人推荐榜 <span class="dm-rank-badge" style="background:#39e6c3">新面孔</span></h3>
+          <div class="dm-rank-item"><span class="dm-rank-no">1</span><div class="dm-rank-title"><b>《楼梯间》手机竖屏 MV</b><span>创作者 江白 / 首周进榜</span></div><span class="dm-rank-val">+38%</span></div>
+          <div class="dm-rank-item"><span class="dm-rank-no">2</span><div class="dm-rank-title"><b>《潮汐表》定格动画短片</b><span>创作者 小满 / 手工制作</span></div><span class="dm-rank-val">+31%</span></div>
+          <div class="dm-rank-item"><span class="dm-rank-no">3</span><div class="dm-rank-title"><b>《三公里》骑行沿途记录</b><span>创作者 阿吉 / 户外影像</span></div><span class="dm-rank-val">+24%</span></div>
+          <div class="dm-rank-item"><span class="dm-rank-no">4</span><div class="dm-rank-title"><b>《旧磁带》翻拍实验</b><span>创作者 周野 / 复古美学</span></div><span class="dm-rank-val">+19%</span></div>
+          <div class="dm-rank-item"><span class="dm-rank-no">5</span><div class="dm-rank-title"><b>《晚风邮局》口琴配乐</b><span>创作者 池一 / 治愈影像</span></div><span class="dm-rank-val">+12%</span></div>
+        </div>
+      </div>
+
+      <div class="dm-quote-grid">
+        <div class="dm-quote">
+          <p>第一次在朵蜜MV投稿，收到的是逐条回复，不是模板式退回。编辑指出我的音频底噪没有处理干净，还给了两个降噪方案。这种认真程度在同类平台里很少见。</p>
+          <div class="dm-quote-foot">
+            <span class="dm-avatar-xs" style="background:linear-gradient(135deg,#39e6c3,#8b7bff)">江</span>
+            <span class="dm-quote-who">江白</span><span class="dm-quote-stars">★★★★★</span><span class="dm-quote-when">11 月 18 日</span>
+          </div>
+        </div>
+        <div class="dm-quote">
+          <p>作为观众，我最喜欢的是制作信息是公开的。能看到一支片子用了什么机器、什么镜头、调色往哪个方向走，比单纯看成品更有意思，也让我开始认真研究画面。</p>
+          <div class="dm-quote-foot">
+            <span class="dm-avatar-xs" style="background:linear-gradient(135deg,#ffc861,#ff5c8a)">周</span>
+            <span class="dm-quote-who">周雨</span><span class="dm-quote-stars">★★★★★</span><span class="dm-quote-when">11 月 15 日</span>
+          </div>
+        </div>
+        <div class="dm-quote">
+          <p>播放器在移动端偶尔会有字幕不同步，反馈之后第二天就回复说在修，第三天就更新了。虽然是小问题，但处理速度让人愿意继续待在朵蜜MV这个社区里。</p>
+          <div class="dm-quote-foot">
+            <span class="dm-avatar-xs" style="background:linear-gradient(135deg,#8b7bff,#39e6c3)">陆</span>
+            <span class="dm-quote-who">陆一鸣</span><span class="dm-quote-stars">★★★★☆</span><span class="dm-quote-when">11 月 12 日</span>
+          </div>
+        </div>
+        <div class="dm-quote">
+          <p>我们乐队的第一支正式 MV 就是在这里发布的。当时没有预算，平台帮忙协调了场地与灯光，成片效果超出预期。后来线下放映会见到了很多同行，那种氛围很难得。</p>
+          <div class="dm-quote-foot">
+            <span class="dm-avatar-xs" style="background:linear-gradient(135deg,#ff5c8a,#8b7bff)">南</span>
+            <span class="dm-quote-who">南岸乐队</span><span class="dm-quote-stars">★★★★★</span><span class="dm-quote-when">11 月 09 日</span>
+          </div>
+        </div>
+        <div class="dm-quote">
+          <p>建议征稿主题能提前一个季度公布，这样团队排期会更从容。不过整体体验很好，教程内容尤其扎实，我几乎是照着《一支 MV 的二十二天》完成了自己的第一个项目。</p>
+          <div class="dm-quote-foot">
+            <span class="dm-avatar-xs" style="background:linear-gradient(135deg,#39e6c3,#ffc861)">小</span>
+            <span class="dm-quote-who">小满</span><span class="dm-quote-stars">★★★★☆</span><span class="dm-quote-when">11 月 06 日</span>
+          </div>
+        </div>
+        <div class="dm-quote">
+          <p>朵蜜MV的评论区质量比想象中高，很少有人刷无意义的短句。可能是因为平台对评论做了引导，也可能是因为这里的作品本身值得认真回应。总之看评论也像在读短文。</p>
+          <div class="dm-quote-foot">
+            <span class="dm-avatar-xs" style="background:linear-gradient(135deg,#8b7bff,#ffc861)">祁</span>
+            <span class="dm-quote-who">祁然</span><span class="dm-quote-stars">★★★★★</span><span class="dm-quote-when">11 月 03 日</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S7 辅助区：动态 + 合作 + FAQ -->
+  <section class="dm-section dm-anchor" id="dmFaq">
+    <div class="dm-container">
+      <div class="dm-rank-cols" style="align-items:start;">
+        <div>
+          <span class="dm-eyebrow">企业动态</span>
+          <h2 class="dm-h2" style="margin-bottom:20px;">朵蜜MV <span class="dm-h2-mark">近期更新</span></h2>
+          <div class="dm-news-list">
+            <div class="dm-news">
+              <span class="dm-news-date">11.20</span>
+              <div class="dm-news-body"><b>《城市声场》第三季定档 12 月 3 日</b><p>本季共 8 支原创影像，朵蜜MV官方网站独家首播，首周每天更新一支，并同步开放幕后手记专栏。</p></div>
+            </div>
+            <div class="dm-news">
+              <span class="dm-news-date">11.16</span>
+              <div class="dm-news-body"><b>年度创作者扶持计划开启报名</b><p>面向首次投稿的创作者，入选者将获得制作资源、导师辅导与官方推荐位，报名截止 12 月 20 日。</p></div>
+            </div>
+            <div class="dm-news">
+              <span class="dm-news-date">11.10</span>
+              <div class="dm-news-body"><b>播放器更新：支持多语言字幕轨道</b><p>上传时可附带独立字幕文件，系统自动生成可选轨道，移动端与桌面端同步生效。</p></div>
+            </div>
+            <div class="dm-news">
+              <span class="dm-news-date">11.05</span>
+              <div class="dm-news-body"><b>社区内容公约 v2.1 发布</b><p>进一步明确搬运与二次剪辑的授权要求，同时公布上一季度的治理数据与申诉处理结果。</p></div>
+            </div>
+            <div class="dm-news">
+              <span class="dm-news-date">11.01</span>
+              <div class="dm-news-body"><b>「帧与节拍」线下放映会开放报名</b><p>11 月 29 日场次在合作空间举办，放映四支入选作品并安排导演映后交流，名额有限。</p></div>
+            </div>
+          </div>
+          <div class="dm-partners">
+            <div class="dm-partner">回声唱片</div>
+            <div class="dm-partner">半岛空间</div>
+            <div class="dm-partner">光合影业</div>
+            <div class="dm-partner">青柠设备</div>
+          </div>
+        </div>
+
+        <div>
+          <span class="dm-eyebrow">帮助中心</span>
+          <h2 class="dm-h2" style="margin-bottom:20px;">关于<span class="dm-h2-mark">朵蜜MV</span>的常见问题</h2>
+          <div class="dm-faq">
+            <details>
+              <summary>朵蜜MV官方网站可以免费观看吗？</summary>
+              <div class="dm-faq-a">可以。平台上的官方企划影像与创作者投稿作品均可免费观看，部分 4K 母版下载需要创作者授权，下载入口会在作品页明确标注。</div>
+            </details>
+            <details>
+              <summary>投稿需要满足什么条件？</summary>
+              <div class="dm-faq-a">作品需为原创或已获得完整授权，画面不低于 1080P，音频采样不低于 48kHz，并填写音乐与素材来源。首次投稿建议先阅读《投稿指南》，审核周期为七个工作日。</div>
+            </details>
+            <details>
+              <summary>如何参加季度主题征稿？</summary>
+              <div class="dm-faq-a">在官网的专题企划页面查看当前命题与截止时间，提交作品时勾选对应专题标签即可。入选作品会进入官方推荐位，并获得下一季度的制作资源支持。</div>
+            </details>
+            <details>
+              <summary>平台的音乐版权如何保障？</summary>
+              <div class="dm-faq-a">官方企划使用的每段音乐都可查询授权编号；创作者投稿需提供音乐来源声明。若收到版权方异议，平台会先行下架并联系双方核实，处理结果会在动态中公示。</div>
+            </details>
+            <details>
+              <summary>作品被退回后还能再次提交吗？</summary>
+              <div class="dm-faq-a">可以。退回时会附上具体原因与修改建议，作者调整后可直接重新提交，无需重新注册或排队。若对结果有异议，可通过帮助中心提交申诉。</div>
+            </details>
+            <details>
+              <summary>是否支持商业合作与品牌定制？</summary>
+              <div class="dm-faq-a">支持。朵蜜MV提供从概念企划、拍摄执行到分发与社区运营的完整影像方案，合作请通过页脚的商务邮箱联系，我们通常会在三个工作日内回复。</div>
+            </details>
+            <details>
+              <summary>线下放映会如何报名？</summary>
+              <div class="dm-faq-a">每场放映会会在企业动态中发布报名入口，名额有限，按报名时间排序。入选观众会收到确认信息，现场设有映后交流与创作答疑环节。</div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S7 创作灵感 / 投稿 CTA -->
+  <section class="dm-section dm-anchor" id="dmCta" style="padding-top:0;">
+    <div class="dm-container">
+      <div class="dm-cta">
+        <div>
+          <h2>把你的下一支 MV，交给朵蜜MV</h2>
+          <p>无论是一次完整的企划，还是一段还没想好怎么剪的素材，朵蜜MV都欢迎你上传。这里有人认真看片，也有人愿意给出具体建议。原创、正版、高清，是我们共同的底线。</p>
+        </div>
+        <div class="dm-cta-actions">
+          <button class="dm-btn dm-btn-primary" type="button" data-dm-open="submit">立即投稿</button>
+          <button class="dm-btn dm-btn-ghost" type="button" data-dm-open="share">复制官网链接</button>
+          <button class="dm-btn dm-btn-ghost" type="button" data-dm-open="feedback">意见反馈</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- S8 页脚 -->
+<footer class="dm-footer">
+  <div class="dm-container">
+    <div class="dm-footer-grid">
+      <div class="dm-footer-brand">
+        <a class="dm-logo" href="#dmHero">
+          <span class="dm-logo-mark">朵</span>
+          <span class="dm-logo-text" style="color:#fff">朵蜜MV<em>VIDEO MUSIC</em></span>
+        </a>
+        <p>朵蜜MV官方网站，专注原创音乐影像与视觉作品的高品质视频品牌。我们坚持正版授权与真实表达，为创作者与企业搭建可持续的内容生态。</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <span class="dm-tag dm-tag--mint">原创正版</span>
+          <span class="dm-tag">4K 高清</span>
+          <span class="dm-tag dm-tag--pink">持续运营</span>
+        </div>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#dmVideos">热门影像</a></li>
+          <li><a href="#dmParse">关键词解析</a></li>
+          <li><a href="#dmTopics">专题企划</a></li>
+          <li><a href="#dmAuthors">创作者矩阵</a></li>
+          <li><a href="#dmReviews">社区口碑</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>参与方式</h4>
+        <ul>
+          <li><a href="#dmCta">投稿入口</a></li>
+          <li><a href="#dmFaq">帮助中心</a></li>
+          <li><a href="#dmFaq">季度征稿</a></li>
+          <li><a href="#dmFaq">线下放映会</a></li>
+          <li><a href="#dmHero">品牌介绍</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>联系我们</h4>
+        <p class="dm-footer-contact">
+          <b>商务合作</b>：brand@duomi-mv.com<br>
+          <b>内容投稿</b>：submit@duomi-mv.com<br>
+          <b>媒体咨询</b>：press@duomi-mv.com<br>
+          <b>工作时间</b>：周一至周五 10:00–19:00
+        </p>
+      </div>
+    </div>
+    <div class="dm-footer-bottom">
+      <span>© 2019–2026 朵蜜MV 官方网站 · 版权所有 · 持续运营中</span>
+      <span>内容均为原创或已获授权 · 备案号：影制字第 2026-0317 号</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div class="dm-toast" id="dmToast" role="status" aria-live="polite"></div>
+
+<!-- 弹窗：评论 -->
+<div class="dm-modal-mask" id="dmModalComment" data-dm-modal>
+  <div class="dm-modal" role="dialog" aria-modal="true" aria-labelledby="dmCommentTitle">
+    <div class="dm-modal-head">
+      <h3 id="dmCommentTitle">参与讨论</h3>
+      <button class="dm-modal-close" type="button" data-dm-close aria-label="关闭">×</button>
+    </div>
+    <p style="margin-bottom:14px;">写下你对这支作品的具体感受。我们更欢迎讨论画面、剪辑与声音处理的评论，而不只是“好听”“好看”。</p>
+    <div class="dm-form-row">
+      <label for="dmCommentText">评论内容</label>
+      <textarea id="dmCommentText" placeholder="例如：第 1 分 20 秒的转场处理很有想法……"></textarea>
+    </div>
+    <button class="dm-btn dm-btn-primary" type="button" data-dm-send="comment">提交评论</button>
+  </div>
+</div>
+
+<!-- 弹窗：投稿 -->
+<div class="dm-modal-mask" id="dmModalSubmit" data-dm-modal>
+  <div class="dm-modal" role="dialog" aria-modal="true" aria-labelledby="dmSubmitTitle">
+    <div class="dm-modal-head">
+      <h3 id="dmSubmitTitle">投稿至朵蜜MV</h3>
+      <button class="dm-modal-close" type="button" data-dm-close aria-label="关闭">×</button>
+    </div>
+    <p>填写基础信息后即可上传作品。请确保你拥有音乐与素材的完整授权，审核结果将在七个工作日内通知。</p>
+    <div class="dm-form-row">
+      <label for="dmSubmitName">作品名称</label>
+      <input id="dmSubmitName" type="text" placeholder="例如：夏夜回声">
+    </div>
+    <div class="dm-form-row">
+      <label for="dmSubmitType">作品类型</label>
+      <select id="dmSubmitType">
+        <option>原创 MV</option>
+        <option>现场实录</option>
+        <option>幕后纪录</option>
+        <option>教程与解析</option>
+      </select>
+    </div>
+    <div class="dm-form-row">
+      <label for="dmSubmitContact">接收通知的联系方式</label>
+      <input id="dmSubmitContact" type="text" placeholder="邮箱或手机号">
+    </div>
+    <button class="dm-btn dm-btn-primary" type="button" data-dm-send="submit">提交投稿信息</button>
+  </div>
+</div>
+
+<!-- 弹窗：分享 -->
+<div class="dm-modal-mask" id="dmModalShare" data-dm-modal>
+  <div class="dm-modal" role="dialog" aria-modal="true" aria-labelledby="dmShareTitle">
+    <div class="dm-modal-head">
+      <h3 id="dmShareTitle">分享朵蜜MV</h3>
+      <button class="dm-modal-close" type="button" data-dm-close aria-label="关闭">×</button>
+    </div>
+    <p>把喜欢的内容分享给朋友，是社区持续成长最简单的方式。选择一种方式，或直接复制页面链接。</p>
+    <div class="dm-share-row">
+      <button type="button" data-dm-share="微信">微信</button>
+      <button type="button" data-dm-share="微博">微博</button>
+      <button type="button" data-dm-share="QQ">QQ</button>
+    </div>
+    <button class="dm-btn dm-btn-primary" type="button" data-dm-copy>复制页面链接</button>
+  </div>
+</div>
+
+<!-- 弹窗：创作者 -->
+<div class="dm-modal-mask" id="dmModalAuthor" data-dm-modal>
+  <div class="dm-modal" role="dialog" aria-modal="true" aria-labelledby="dmAuthorTitle">
+    <div class="dm-modal-head">
+      <h3 id="dmAuthorTitle">创作者档案</h3>
+      <button class="dm-modal-close" type="button" data-dm-close aria-label="关闭">×</button>
+    </div>
+    <p style="margin-bottom:12px;">平台现有 3,420 位认证创作者，覆盖叙事 MV、现场实录、声音设计、调色与教程等方向。你可以通过搜索框查找具体创作者，或在专题页面查看他们参与的作品。</p>
+    <p>如果你希望成为认证创作者，请先完成一次投稿，并在作品信息中注明擅长的领域。编辑团队会根据作品质量与更新稳定性进行评估。</p>
+    <button class="dm-btn dm-btn-primary" type="button" data-dm-open="submit">申请认证</button>
+  </div>
+</div>
+
+<!-- 弹窗：反馈 -->
+<div class="dm-modal-mask" id="dmModalFeedback" data-dm-modal>
+  <div class="dm-modal" role="dialog" aria-modal="true" aria-labelledby="dmFeedbackTitle">
+    <div class="dm-modal-head">
+      <h3 id="dmFeedbackTitle">意见反馈</h3>
+      <button class="dm-modal-close" type="button" data-dm-close aria-label="关闭">×</button>
+    </div>
+    <p>遇到播放问题、授权疑问或社区规范相关的建议，都可以在这里告诉我们。具体描述能帮助我们更快定位。</p>
+    <div class="dm-form-row">
+      <label for="dmFeedbackText">问题描述</label>
+      <textarea id="dmFeedbackText" placeholder="请描述你遇到的问题或建议……"></textarea>
+    </div>
+    <button class="dm-btn dm-btn-primary" type="button" data-dm-send="feedback">提交反馈</button>
+  </div>
+</div>
+
+<button class="dm-totop" id="dmToTop" type="button" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg>
+</button>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ===== Toast ===== */
+  var toastEl = document.getElementById("dmToast");
+  var toastTimer = null;
+  function toast(msg){
+    if(!toastEl) return;
+    toastEl.textContent = msg;
+    toastEl.classList.add("is-show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){
+      toastEl.classList.remove("is-show");
+    }, 2200);
+  }
+
+  /* ===== 移动端导航 ===== */
+  var burger = document.getElementById("dmBurger");
+  var mobileNav = document.getElementById("dmMobileNav");
+  if(burger && mobileNav){
+    burger.addEventListener("click", function(){
+      var open = mobileNav.classList.toggle("is-open");
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    mobileNav.addEventListener("click", function(e){
+      if(e.target.tagName === "A"){
+        mobileNav.classList.remove("is-open");
+        burger.setAttribute("aria-expanded","false");
+      }
+    });
+  }
+
+  /* ===== 搜索提示 ===== */
+  var searchInput = document.getElementById("dmSearchInput");
+  var searchTimer = null;
+  if(searchInput){
+    searchInput.addEventListener("input", function(){
+      var v = searchInput.value.trim();
+      clearTimeout(searchTimer);
+      if(!v) return;
+      searchTimer = setTimeout(function(){
+        toast("正在检索「" + v + "」相关影像与创作者");
+      }, 420);
+    });
+    searchInput.addEventListener("keydown", function(e){
+      if(e.key === "Enter"){
+        var v = searchInput.value.trim();
+        if(v){
+          toast("已为你筛选「" + v + "」相关内容");
+        } else {
+          toast("请输入影像名称或创作者昵称");
+        }
+      }
+    });
+  }
+
+  /* ===== 点赞 / 收藏 ===== */
+  document.addEventListener("click", function(e){
+    var likeBtn = e.target.closest("[data-dm-like]");
+    if(likeBtn){
+      var likesActive = likeBtn.classList.toggle("is-liked");
+      var span = likeBtn.querySelector("span");
+      if(span){
+        span.textContent = likesActive ? "已赞" : "点赞";
+      }
+      toast(likesActive ? "已点赞，感谢支持" : "已取消点赞");
+      return;
+    }
+    var saveBtn = e.target.closest("[data-dm-save]");
+    if(saveBtn){
+      var saved = saveBtn.classList.toggle("is-saved");
+      var s2 = saveBtn.querySelector("span");
+      if(s2){
+        s2.textContent = saved ? "已收藏" : "收藏";
+      }
+      toast(saved ? "已收藏到个人片单" : "已取消收藏");
+      return;
+    }
+  });
+
+  /* ===== 播放按钮（模拟） ===== */
+  document.addEventListener("click", function(e){
+    var playBtn = e.target.closest("[data-dm-play]");
+    if(playBtn){
+      var title = playBtn.getAttribute("data-dm-play") || "影像";
+      toast("正在加载《" + title + "》");
+    }
+  });
+
+  /* ===== 弹窗系统 ===== */
+  var modals = {
+    comment: document.getElementById("dmModalComment"),
+    submit: document.getElementById("dmModalSubmit"),
+    share: document.getElementById("dmModalShare"),
+    author: document.getElementById("dmModalAuthor"),
+    feedback: document.getElementById("dmModalFeedback")
+  };
+  var lastFocus = null;
+
+  function openModal(name){
+    var m = modals[name];
+    if(!m) return;
+    lastFocus = document.activeElement;
+    m.classList.add("is-open");
+    document.body.style.overflow = "hidden";
+    var first = m.querySelector("input, textarea, button");
+    if(first) first.focus();
+    var closeBtn = m.querySelector("[data-dm-close]");
+    if(closeBtn) closeBtn.focus();
+  }
+  function closeAll(){
+    Object.keys(modals).forEach(function(k){
+      if(modals[k]) modals[k].classList.remove("is-open");
+    });
+    document.body.style.overflow = "";
+    if(lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  document.addEventListener("click", function(e){
+    var opener = e.target.closest("[data-dm-open]");
+    if(opener){
+      var name = opener.getAttribute("data-dm-open");
+      if(modals[name]){ openModal(name); }
+      return;
+    }
+    if(e.target.closest("[data-dm-close]")){ closeAll(); return; }
+    var mask = e.target.closest("[data-dm-modal]");
+    if(mask && e.target === mask){ closeAll(); }
+  });
+
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape"){ closeAll(); }
+  });
+
+  /* ===== 复制链接 ===== */
+  function copyText(text){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function(resolve, reject){
+      try{
+        var ta = document.createElement("textarea");
+        ta.value = text;
+        ta.setAttribute("readonly","");
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        resolve();
+      }catch(err){
+        reject(err);
+      }
+    });
+  }
+
+  document.addEventListener("click", function(e){
+    if(e.target.closest("[data-dm-copy]")){
+      copyText(window.location.href).then(function(){
+        toast("页面链接已复制");
+      }).catch(function(){
+        toast("复制失败，请手动复制地址栏链接");
+      });
+    }
+    var shareBtn = e.target.closest("[data-dm-share]");
+    if(shareBtn){
+      var platform = shareBtn.getAttribute("data-dm-share");
+      toast("已生成" + platform + "分享卡片，请在弹出的窗口完成分享");
+    }
+  });
+
+  /* ===== 表单提交（模拟） ===== */
+  document.addEventListener("click", function(e){
+    var sendBtn = e.target.closest("[data-dm-send]");
+    if(!sendBtn) return;
+    var kind = sendBtn.getAttribute("data-dm-send");
+    if(kind === "comment"){
+      var ct = document.getElementById("dmCommentText");
+      if(!ct || !ct.value.trim()){ toast("请先填写评论内容"); return; }
+      ct.value = "";
+      closeAll();
+      toast("评论已提交，审核后展示");
+    } else if(kind === "submit"){
+      var name = document.getElementById("dmSubmitName");
+      var contact = document.getElementById("dmSubmitContact");
+      if(!name || !name.value.trim()){ toast("请填写作品名称"); return; }
+      if(!contact || !contact.value.trim()){ toast("请填写联系方式，方便通知审核结果"); return; }
+      name.value = "";
+      contact.value = "";
+      closeAll();
+      toast("投稿信息已提交，七个工作日内通知结果");
+    } else if(kind === "feedback"){
+      var fb = document.getElementById("dmFeedbackText");
+      if(!fb || !fb.value.trim()){ toast("请描述你遇到的问题"); return; }
+      fb.value = "";
+      closeAll();
+      toast("反馈已收到，感谢你的建议");
+    }
+  });
+
+  /* ===== 回到顶部 ===== */
+  var toTop = document.getElementById("dmToTop");
+  function onScroll(){
+    if(!toTop) return;
+    if(window.scrollY > 520){
+      toTop.classList.add("is-show");
+    } else {
+      toTop.classList.remove("is-show");
+    }
+  }
+  window.addEventListener("scroll", onScroll, {passive:true});
+  if(toTop){
+    toTop.addEventListener("click", function(){
+      window.scrollTo({top:0, behavior:"smooth"});
+    });
+  }
+  onScroll();
+
+})();
+</script>
+</body>
+  </html>
